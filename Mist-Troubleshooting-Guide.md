@@ -6,6 +6,7 @@ Known problems:
 - [Account can't be unlocked](#account-cant-be-unlocked)
 - [Unable to import pre-sale wallet](#unable-to-import-presale-wallet)
 - [I send ether to the wallet contract but it doesn't show up](#i-send-ether-to-the-wallet-contract-but-it-doesnt-show-up)
+- [Can't find ABI while importing custom contract](#cant-find-abi-while-importing-custom-contract)
 
 ## Please read first!
 
@@ -78,3 +79,9 @@ Due to a bug importing a presale wallet can fail. It is possible to import the p
 If you send ether to a contract wallet, it consumes more than the minimum of 21 000 gas for a normal value transfer, as the contract will also fire logs when receiving the transaction. Make sure you send at least 50 000 gas along with your transaction. 
 
 The transaction will otherwise be reverted and the ether stay at its origin address.
+
+## Can't find ABI while importing custom contract
+
+Currently the [ABI](https://github.com/ethereum/wiki/wiki/Ethereum-Contract-ABI) does not get stored on the network when deploying a contract. It can either be [regenerated from the source code](https://ethereum.stackexchange.com/questions/3149/how-do-you-get-a-json-file-abi-from-a-known-contract-address) or exported from another instance of Mist via the contracts "display interface" button.
+
+*Note: [contract metadata](https://solidity.readthedocs.io/en/develop/miscellaneous.html#contract-metadata) will make it possible to retrieve the ABI as well as the source code.*
